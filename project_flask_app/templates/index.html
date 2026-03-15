@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Аналитика</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Добро пожаловать, пользователь!</h1>
+    <canvas id="accuracyChart"></canvas>
+    <script>
+        var ctx = document.getElementById('accuracyChart').getContext('2d');
+        var chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Эпоха 1', 'Эпоха 2', 'Эпоха 3'],
+                datasets: [{
+                    label: 'Точность на валидации',
+                    data: [0.8, 0.85, 0.9],
+                    borderColor: 'rgb(75, 192, 192)',
+                    fill: false
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+    </script>
+</body>
+</html>
